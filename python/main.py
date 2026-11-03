@@ -91,6 +91,7 @@ def create_task(body, params):
     albo to nie jest string. Jak zmieniasz next_id, daj na początku funkcji: global next_id
     """
     # TODO (Część 2)
+    global next_id
     title = get_string(body, "title")
 
     if not is_valid_title(title):
