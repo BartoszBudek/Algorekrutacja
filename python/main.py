@@ -91,7 +91,16 @@ def create_task(body, params):
     albo to nie jest string. Jak zmieniasz next_id, daj na początku funkcji: global next_id
     """
     # TODO (Część 2)
-    return 501, {"error": "Not implemented"}
+    title = get_string(body, "title")
+
+    if not is_valid_title(title):
+        return 400, {"error": "Nieprawidłowy tytuł"}
+
+    new_task = {"id": next_id, "title": title}
+    new_id+=1
+    tasks.append(new_tasks)
+
+    return 201, new_task
 
 ROUTES = [
     ("GET", "/health", health),
